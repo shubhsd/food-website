@@ -1,0 +1,128 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Raleway-regular";
+    src: url(../fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Raleway-medium";
+    src: url(../fonts/Raleway-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Raleway-bold";
+    src: url(../fonts/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Raleway-semibold";
+    src: url(../fonts/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Raleway-black";
+    src: url(../fonts/Raleway-Black.ttf);
+}
+
+
+/* Colors */
+
+:root {
+    --primary: #eebf00;
+    --secondary: #232b38;
+    --ternary: #6c6c6c;
+    --danger: #fe4545;
+    --pure: #fefefe;
+    --light: #f0f0f0;
+    --heaven: #ffffff;
+    --footer: #2d333f;
+}
+
+
+/* Reset default stylesheet of browser */
+
+
+/* * means everything  */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* To make font smooth */
+    -webkit-font-smoothing: antialiased
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+    /* means top bottom 0 and left right 15px */
+    margin: 0 auto;
+    /* to make it in center we left top bottom 0 and left right auto */
+}
+
+@media (min-width:576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1152px;
+    }
+}
+
+header.topBar {
+    background: var(--secondary);
+    color: var(--pure);
+    font-family: 'Raleway-semibold';
+    padding: 0.75rem 0
+}
+
+header.topBar .icons a {
+    margin-right: 0.6rem;
+}
+
+header.topBar .auth .divider {
+    padding: 0 1rem;
+}
+
+header.topBar .auth>div a {
+    color: var(--pure);
+    text-decoration: none;
+}
+
+header.topBar .auth>div img {
+    margin-right: 0.35rem;
+}
+
+
+/* Making utility class */
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
