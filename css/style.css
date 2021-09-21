@@ -104,6 +104,7 @@ header.topBar .auth .divider {
 }
 
 header.topBar .auth>div a {
+    /* >div means direct call to element which had no class */
     color: var(--pure);
     text-decoration: none;
 }
@@ -114,7 +115,6 @@ header.topBar .auth>div img {
 
 
 /* Making utility class */
-
 .flex {
     display: flex;
 }
@@ -125,4 +125,38 @@ header.topBar .auth>div img {
 
 .items-center {
     align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/* Nav bar css */
+
+nav .top {
+    padding: 1.5rem 0;
+}
+
+nav .top .contact h5, nav .top .time h5 {
+    font-family: "Raleway-black";
+    margin-bottom: 0.25rem;
+}
+
+nav .top .contact h6, nav .top .time h6 {
+    font-family: "Raleway-medium";
+    letter-spacing: 0.055rem;
+    font-size: 0.75rem;
+    color: var(--ternary);
+}
+
+nav .top .contact img, nav .top .time img {
+    margin-right: 1rem;
+}
+
+nav .navbar a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-family: "Raleway-semibold";
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
 }
