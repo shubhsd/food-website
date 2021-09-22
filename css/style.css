@@ -16,6 +16,11 @@
 }
 
 @font-face {
+    font-family: "Raleway-extrabold";
+    src: url(../fonts/Raleway-ExtraBold.ttf);
+}
+
+@font-face {
     font-family: "Raleway-semibold";
     src: url(../fonts/Raleway-SemiBold.ttf);
 }
@@ -53,7 +58,8 @@
 
 body {
     /* To make font smooth */
-    -webkit-font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased;
+    height: 4000px;
 }
 
 .container {
@@ -114,7 +120,7 @@ header.topBar .auth>div img {
 }
 
 
-/* Making utility class */
+/* Making utility class -- starts */
 .flex {
     display: flex;
 }
@@ -124,6 +130,7 @@ header.topBar .auth>div img {
 }
 
 .items-center {
+    /* Across y-axis */
     align-items: center;
 }
 
@@ -131,7 +138,13 @@ header.topBar .auth>div img {
     justify-content: center;
 }
 
-/* Nav bar css */
+.text-center {
+    text-align: center;
+}
+
+/* Making utility class -- Ends */
+
+/* Navbar first section css starts*/
 
 nav .top {
     padding: 1.5rem 0;
@@ -153,10 +166,310 @@ nav .top .contact img, nav .top .time img {
     margin-right: 1rem;
 }
 
+/* Navbar first section css ends */
+
+/* Navbar list css starts */
 nav .navbar a {
     text-decoration: none;
     color: var(--secondary);
     font-family: "Raleway-semibold";
     font-size: 1rem;
     padding: 1rem 1.5rem;
+    /* Giving transition for smooth effect  */
+    transition: all .10s ease;
+    /* Below are the browser specific properties if main transition property is not picked by the browser */
+    -webkit-transition: all .10s ease;
+    -moz-transition: all .10s ease;
+    -ms-transition: all .10s ease;
+    -o-transition: all .10s ease;
 }
+
+nav .navbar a.active {
+    /* Here no space was given between a and active as they are pointing same element */
+    background: var(--primary);
+    color: var(--pure);
+}
+
+nav .navbar a:hover {
+    background: var(--primary);
+    color: var(--pure);
+}
+/* navbar list css ends */
+
+
+/* Utility class for shadow starts */
+.magic-shadow {
+    position: relative;
+    background: var(--heaven);
+}
+
+.magic-shadow::after{
+    /* Content property works with before and after pseudo tag i.e. here it means .magic shadow class ke baad (::after) do this  */
+    content: ''; 
+    display: block;
+    width: 100%;
+    height: 69px;
+    background-image: url('../icons/shadow.svg');
+    bottom: -22px;
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-position: center;
+}
+/* Utility class for shadow ends */
+
+/* Hero section css starts */
+
+header.hero {
+    /* this class name was written together because hero is direct class of header */
+    height: 600px;
+    background-image: url('../images/hero.png');
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+header.hero .container{
+  /* This was given position relative so that our right image  */
+  position: relative;
+}
+
+header.hero .welcome {
+    margin-bottom: 0.25rem;
+}
+
+header.hero .welcome span {
+    /* space between welcome and span as span was sub part tag of welcome class */
+    font-family: 'Raleway-bold';
+    color: var(--secondary);
+    margin-right: 0.75rem;
+}
+
+header.hero h1 {
+    font-family: 'Raleway-extrabold';
+    color:var(--secondary);
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+header.hero h1 span {
+    color: var(--primary);
+}
+
+header.hero p {
+    font-family: 'Raleway-medium';
+    width: 50%;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+/* Hero section css ends */
+
+/* Utlity class for buttons start */
+.btn {
+    padding: 0.75rem 0.75rem;
+    border-radius: 4px;
+    line-height: 0.8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .3s all ease;
+    border: 1px solid transparent;
+    /* Above border property was added to prevent jump on button when we hover-- if we don't add this then button will see to change their size */
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--heaven);
+}
+
+.btn-primary:hover {
+    background: var(--heaven);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--heaven);
+    border: 1px solid var(--secondary);
+}
+
+.btn-secondary:hover {
+    background: var(--heaven);
+    color: var(--secondary);
+}
+/* Utlity class for buttons ends */
+
+header.hero button:first-child {
+    /* first child here means first button  */
+    margin-right: 0.50rem;
+}
+
+header.hero .hero-image {
+    position: absolute;
+    top:-40px;
+    right: 40px;
+}
+
+/* Top products section starts */
+
+section {
+    padding: 4rem 0;
+}
+
+section.top-products {
+    background: var(--light);
+}
+
+.section-heading {
+    font-family: "Raleway-bold";
+    text-align: center;
+    position: relative;
+    /* Position:relative given because we have to use pseudo element after that i.e design image kind of thing */
+    margin-bottom: 4rem;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-image: url('../icons/hr.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -40px;
+}
+
+section.top-products .food-slider .food-card {
+    background-color: var(--heaven);
+    padding: 1.5rem 0;
+    border-radius: 4px;
+}
+
+section.top-products .food-slider .food-card .product-image img{
+    width: 80%;
+    height: 200px;
+    object-fit: contain;
+    /* property above will manage the ratio of the image irrespective of how much height and width we have given, due to which it was stretching earlier */
+    padding-bottom: 1rem;
+}
+
+hr{
+    border: 1px solid var(--light);
+    opacity: 0.8;
+    margin: 1rem 0;
+}
+
+section.top-products .food-slider .food-card h2 {
+    font-family: 'Raleway-bold';
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+section.top-products .food-slider .food-card .stars{
+    margin-bottom: 0.5rem;
+}
+
+section.top-products .food-slider .food-card .stars img {
+    margin-right: 0.25rem;
+}
+
+section.top-products .food-slider .food-card .price {
+    font-family: 'Raleway-medium';
+    color: var(--danger);
+    margin-bottom: 1rem;
+}
+
+section.top-products .food-slider .food-card button {
+    font-family: 'Raleway-medium';
+    color: var(--secondary);
+    background: var(--heaven);
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+section.top-products .food-slider .food-card button:hover {
+    background: var(--primary);
+    color: var(--heaven);
+}
+
+.food-slider .food-card button img {
+    background: var(--primary);
+    padding: 0.50rem;
+    height: 32px;
+    margin-right: 1.2rem;
+}
+
+.slick-slide {
+    margin:0 27px
+}
+
+.slick-list {
+    margin: 0 -27px;
+}
+
+.slick-track {
+    padding: 1rem 0;
+}
+
+.top-products .slider-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.prev-btn {
+    position: absolute;
+    top: 46%;
+    left: -3rem;
+    z-index: 1;
+}
+
+.next-btn {
+    position: absolute;
+    top: 46%;
+    right: -3rem;
+    z-index: 1;
+}
+
+.top-products .slider {
+    position: relative;
+}
+
+.top-products .btn-wrapper {
+    margin-top: 2rem;
+}
+
+/* Top products section ends */
+
+/* Utility class  for small shadow starts */
+.magic-shadow-sm {
+    position: relative;
+    background: var(--heaven);
+}
+
+.magic-shadow-sm::after{
+    /* Content property works with before and after pseudo tag i.e. here it means .magic shadow class ke baad (::after) do this  */
+    content: ''; 
+    display: block;
+    width: 100%;
+    height: 69px;
+    background-image: url('../icons/shadow-sm.svg');
+    bottom: -20px;
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-position: center;
+}
+/* Utility class  for small shadow ends */
+
